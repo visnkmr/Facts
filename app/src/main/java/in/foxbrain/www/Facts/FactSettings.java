@@ -41,6 +41,7 @@ public class FactSettings extends ActionBarActivity {
         List<String> your_array_list = new ArrayList<String>();
         your_array_list.add("Enter a fact number");
         your_array_list.add("Change background color");
+        your_array_list.add("Project code on github");
         your_array_list.add("Made by: SortedCode");
         your_array_list.add("Email Developer");
         your_array_list.add("Visit Facts! Homepage");
@@ -173,33 +174,40 @@ public class FactSettings extends ActionBarActivity {
                 }
                 else if(position==2)
                 {
-                    String url = "http://sortedcode.blogspot.in";
+                    String url = "https://github.com/visnkmr/Facts";
                     Intent i = new Intent(Intent.ACTION_VIEW);
                     i.setData(Uri.parse(url));
                     startActivity(i);
                 }
                 else if(position==3)
                 {
+                    String url = "http://sortedcode.blogspot.in";
+                    Intent i = new Intent(Intent.ACTION_VIEW);
+                    i.setData(Uri.parse(url));
+                    startActivity(i);
+                }
+                else if(position==4)
+                {
                     Intent emailIntent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts(
                             "mailto","visnk2@gmail.com", null));
                     emailIntent.putExtra(Intent.EXTRA_SUBJECT, "");
                     startActivity(Intent.createChooser(emailIntent, "Send email..."));
                 }
-                else if(position==4)
+                else if(position==5)
                 {
                     String url = "http://factsbysortedcode.blogspot.in";
                     Intent i = new Intent(Intent.ACTION_VIEW);
                     i.setData(Uri.parse(url));
                     startActivity(i);
                 }
-                else if(position==5)
+                else if(position==6)
                 {
                     Intent intent = new Intent(getApplicationContext(),intro4.class);
                     intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                     startActivity(intent);
                     overridePendingTransition(R.anim.abc_slide_in_bottom, R.anim.abc_slide_out_bottom);
                 }
-                else if(position==7)
+                else if(position==8)
                 {
                     new AlertDialog.Builder(FactSettings.this)
                             .setIcon(R.drawable.speak)
@@ -213,7 +221,7 @@ public class FactSettings extends ActionBarActivity {
                             .setPositiveButton("ok", null)
                             .show();
                 }
-                else if(position==6){
+                else if(position==7){
                     startActivity(new Intent(getApplicationContext(),facts.class));
                 }
 
