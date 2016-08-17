@@ -1745,7 +1745,7 @@ public class MainActivity extends AppCompatActivity implements OnInitListener {
             int dataReturned = someData.getInt("ivalue", 0);
             ++dataReturned;
             factnumber = dataReturned + "";
-            String shareBody = "I found an intresting fact at Fact #" + factnumber + " in Facts! app";
+            String shareBody = "I found an intresting fact at Fact #" + factnumber + " in Facts app";
             Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
             sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareBody);
             sharingIntent.setType("text/plain");
