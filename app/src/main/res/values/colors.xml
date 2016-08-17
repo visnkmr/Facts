@@ -1,0 +1,10 @@
+<resources>
+
+    <color name="black_overlay">#66000000</color>
+    <color name="mblue">  #03a9f4</color>
+    <color name="primary">#FFFFFF</color>
+    <color name="primary_pressed">#EEEEEE</color>
+    <color name="ripple">#f0f4c3</color>
+    <color name="back">#00aa88</color>
+
+</resources>
