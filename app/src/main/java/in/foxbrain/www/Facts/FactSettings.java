@@ -29,7 +29,7 @@ public class FactSettings extends com.fnp.materialpreferences.PreferenceActivity
         Preference dialogPreference = findPreference("dialog_preference");
         dialogPreference.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
             public boolean onPreferenceClick(Preference preference) {
-                AlertDialog.Builder alertDialog = new AlertDialog.Builder(FactSettings.this);
+                AlertDialog.Builder alertDialog = new AlertDialog.Builder(FactSettings.this,R.style.MyAlertDialogStyle);
                 alertDialog.setIcon(R.drawable.ic_launcher);
                 alertDialog.setTitle("Enter Fact number");
                 final EditText input = new EditText(FactSettings.this);
@@ -94,7 +94,7 @@ public class FactSettings extends com.fnp.materialpreferences.PreferenceActivity
         Preference fixspeechPreference = findPreference("fixspeech_preference");
         fixspeechPreference.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
             public boolean onPreferenceClick(Preference preference) {
-                new AlertDialog.Builder(FactSettings.this)
+                new AlertDialog.Builder(FactSettings.this,R.style.MyAlertDialogStyle)
                         .setIcon(R.drawable.speak)
                         .setTitle("Fix Speech")
                         .setMessage("If you dont hear any voice go to" +
@@ -110,7 +110,7 @@ public class FactSettings extends com.fnp.materialpreferences.PreferenceActivity
         });
     }
     public void onBackPressed() {
-        finish();
+        finishAffinity();
         startActivity(new Intent(getApplicationContext(),MainActivity.class));
     }
 

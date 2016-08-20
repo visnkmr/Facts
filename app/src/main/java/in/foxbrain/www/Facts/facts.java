@@ -43,4 +43,7 @@ public class facts extends Activity {
 
         return super.onOptionsItemSelected(item);
     }
+    public void onBackPressed() {
+        finish();
+    }
 }

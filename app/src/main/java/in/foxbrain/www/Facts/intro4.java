@@ -209,4 +209,11 @@ public class intro4 extends Activity {
     public boolean onTouchEvent(MotionEvent event) {
         return mGestureDetector.onTouchEvent(event);
     }
+    protected void onDestroy() {
+        finish();
+        super.onDestroy();
+    }
+    public void onBackPressed() {
+        finish();
+    }
 }
