@@ -2,16 +2,13 @@ package in.foxbrain.www.Facts;
 
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.appwidget.AppWidgetManager;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.support.v4.view.GestureDetectorCompat;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.GestureDetector;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -30,9 +27,8 @@ import com.github.mrengineer13.snackbar.SnackBar;
 import com.melnykov.fab.FloatingActionButton;
 
 import java.util.Locale;
-import java.util.Random;
 
-public class MainActivity extends AppCompatActivity implements OnInitListener {
+public class MainActivity extends Activity implements OnInitListener {
 
     public static final String PREFS_NAME = "MyPrefsFile1";
     final Context context = MainActivity.this; //for widget
@@ -1512,7 +1508,6 @@ public class MainActivity extends AppCompatActivity implements OnInitListener {
     private int MY_DATA_CHECK_CODE = 0;
     private TextToSpeech myTTS;
     private GestureDetectorCompat mGestureDetector;
-    private int appWidgetId = AppWidgetManager.INVALID_APPWIDGET_ID; //for widget
 
     private void setupvars() {
         factView = (TextView) findViewById(R.id.factTextView);
@@ -1732,6 +1727,7 @@ public class MainActivity extends AppCompatActivity implements OnInitListener {
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle item selection
         if (item.getItemId() == R.id.settings) {
+            finish();
             Intent intent = new Intent(getApplicationContext(), FactSettings.class);
             startActivity(intent);
         } else if (item.getItemId() == R.id.ShareFact) {
@@ -1753,6 +1749,18 @@ public class MainActivity extends AppCompatActivity implements OnInitListener {
         }
 
         return true;
+    }
+    protected void onDestroy() {
+
+
+        //Close the Text to Speech Library
+        if(myTTS != null) {
+
+            myTTS.stop();
+            myTTS.shutdown();
+        }
+        finishAffinity();
+        super.onDestroy();
     }
 
 
